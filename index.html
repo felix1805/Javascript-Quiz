@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/style.css" />
   <title>Quiz</title>
 </head>
+
 <body>
-  <h1>Quiz</h1>
+  <header>
+    <button class="scorebutton">High Scores</button>
+    <div class='remainingTime'>Remaining Time: <span id="countdown"></span></div>
+  </header>
+  <h1 class="starting-font">Quiz Your Mind!</h1>
   <div id="start">
-    <h2>Start</h2>
-    <button id="begin">Start</button>
+    <h2>Start the Quiz!</h2>
+    <button id="start">Start Quiz</button>
   </div>
   <div id="game">
     <h2>Game</h2>
@@ -23,7 +30,8 @@
       <input type="text" id="initials" />
       <button type="submit">Submit</button>
     </div>
-</from>
-  <script src="./script.js"></script>
+    </from>
+    <script src="./script.js"></script>
 </body>
+
 </html>

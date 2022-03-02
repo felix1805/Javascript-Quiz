@@ -2,40 +2,42 @@ var startEl = document.querySelector('#start');
 var gameEl = document.querySelector('#game');
 var endEl = document.querySelector('#end');
 var questionsEl = document.querySelector('#questions');
+var timerEl = document.querySelector('#remainingTime');
 
-var beginBtn = document.querySelector('#begin');
+
+var startBtn = document.querySelector('#start');
 var initialsInput = document.querySelector('#initials');
 
 var cursor = 0;
 
 var questions = [
   {
-    text: "How much wood could a woodchuck chuck?",
+    displaytext: "What scale of measurement is used for Wind Speed?",
     possible: [
-      "Answer 1",
-      "Answer 2",
-      "Answer 3",
-      "Answer 4",
+      "Richter Scale",
+      "Beaufort Scale",
+      "Geiger Scale",
+      "Moton Scale",
     ],
     correct: 2
   },
   {
-    text: "How's your day going?",
+    text: "Which country gifted the United States the Statue of Liberty?",
     possible: [
-      "Answer 5",
-      "Answer 6",
-      "Answer 7",
-      "Answer 8",
+      "Germany",
+      "Argentina",
+      "France",
+      "Egypt",
     ],
     correct: 3
   },
   {
-    text: "Do you like to draw pictures?",
+    text: "Which Autmotive company exports the most vehicles from the United States?",
     possible: [
-      "Answer 9",
-      "Answer 10",
-      "Answer 11",
-      "Answer 12",
+      "BMW",
+      "General Motors",
+      "Ford",
+      "Chrysler",
     ],
     correct: 0
   }
@@ -75,7 +77,7 @@ function init() {  // || denotes "or" in a function   when pulling and pushing i
   startScreen();
 }
 
-beginBtn.addEventListener('click', gameScreen);
+startBtn.addEventListener('click', gameScreen);
 gameEl.addEventListener('click', function (event) {
   if (event.target.matches('button')) {
     console.log(event.target);
@@ -87,5 +89,26 @@ gameEl.addEventListener('click', function (event) {
     }
   }
 });
+
+var timeRemaining = 10;
+timerEl.textContent = timeRemaining + " Seconds Left";
+function printtimeRemaining() {
+  timerEl.textContent = timeRemaining = " Seconds Left";
+}
+
+function setTimer() {
+  printtimeRemaining();
+  var timerInt = setInterval(function () {
+    timeRemaining--;
+
+    printtimeRemaining();
+
+    if (timeRemaining <= 0) {
+      clearInterval(timerInt);
+      endScreen();
+    }
+  }, 1000);
+}
+
 endEl.addEventListener('submit', handleInitialSubmit);
 init();

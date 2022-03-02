@@ -1,0 +1,18 @@
+.starting-font {
+    font-size: 400%;
+    font-family: 'Courier New', Courier, monospace ;
+    color: blue;
+
+}
+
+.remainingTime{
+    font-size: 25px;
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.scorebutton {
+    float:right;
+    margin-right: 50px;
+    font-size: 25px;
+}
