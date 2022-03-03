@@ -73,8 +73,7 @@ function endScreen() {
   endEl.style.display = "block";
 }
 
-function init() {  // || denotes "or" in a function   when pulling and pushing info through JSON, stringify goes "in", parse goes "out".
-  startScreen();
+function init() {  
 }
 
 startBtn.addEventListener('click', gameScreen);
