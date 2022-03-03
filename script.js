@@ -3,6 +3,7 @@ var gameEl = document.querySelector('#game');
 var endEl = document.querySelector('#end');
 var questionsEl = document.querySelector('#questions');
 var timerEl = document.querySelector('#remainingTime');
+const questionContainerElement = document.getElementById('questionContainer');
 
 
 var startBtn = document.querySelector('#start');
@@ -12,7 +13,7 @@ var cursor = 0;
 
 var questions = [
   {
-    displaytext: "What scale of measurement is used for Wind Speed?",
+    questions: "What scale of measurement is used for Wind Speed?",
     possible: [
       "Richter Scale",
       "Beaufort Scale",
@@ -22,7 +23,7 @@ var questions = [
     correct: 2
   },
   {
-    text: "Which country gifted the United States the Statue of Liberty?",
+    question: "Which country gifted the United States the Statue of Liberty?",
     possible: [
       "Germany",
       "Argentina",
@@ -32,7 +33,7 @@ var questions = [
     correct: 3
   },
   {
-    text: "Which Autmotive company exports the most vehicles from the United States?",
+    question: "Which Autmotive company exports the most vehicles from the United States?",
     possible: [
       "BMW",
       "General Motors",
@@ -47,12 +48,14 @@ function startScreen() {
   startEl.style.display = "block";
   gameEl.style.display = "none";
   endEl.style.display = "none";
+  questionsEl.style.display = "block";
 }
 
 function gameScreen() {
   startEl.style.display = "none";
   gameEl.style.display = "block";
   endEl.style.display = "none";
+  questionsEl.style.display ="block";
   renderQuestion();
 }
 
@@ -108,6 +111,9 @@ function setTimer() {
     }
   }, 1000);
 }
-
+function handleInitialSubmit(event) {
+  event.preventDefault();
+  console.log("here");
+}
 endEl.addEventListener('submit', handleInitialSubmit);
 init();
